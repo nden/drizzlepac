@@ -108,7 +108,7 @@ class TestAlignMosaic(BaseHLATest):
         # Examine the output table to extract the RMS for the entire fit and the compromised
         # information
         if dataset_table:
-            total_rms = dataset_table['total_rms'][0]
+            total_rms = dataset_table.filtered_table['total_rms'][0]
 
         assert 0.0 < total_rms <= RMS_LIMIT
 
@@ -171,7 +171,7 @@ class TestAlignMosaic(BaseHLATest):
         # Examine the output table to extract the RMS for the entire fit and the compromised
         # information
         if dataset_table:
-            total_rms = dataset_table['total_rms'][0]
+            total_rms = dataset_table.filtered_table['total_rms'][0]
 
         assert 0.0 < total_rms <= RMS_LIMIT
 
@@ -218,7 +218,7 @@ class TestAlignMosaic(BaseHLATest):
         # Examine the output table to extract the RMS for the entire fit and the compromised
         # information
         if dataset_table:
-            total_rms = dataset_table['total_rms'][0]
+            total_rms = dataset_table.filtered_table['total_rms'][0]
 
         assert 0.0 < total_rms <= RMS_LIMIT
 
@@ -228,13 +228,13 @@ class TestAlignMosaic(BaseHLATest):
         total_rms = 0.0
 
         dataset_table = alignimages.perform_align(['IB6V06060'], archive=False, clobber=True,
-                                                  debug=False, update_hdr_wcs=False,
-                                                  print_fit_parameters=True, print_git_info=False,
-                                                  output=False)
+                                                    debug=False, update_hdr_wcs=False,
+                                                    print_fit_parameters=True, print_git_info=False,
+                                                    output=False)
 
         # Examine the output table to extract the RMS for the entire fit and the compromised
         # information
         if dataset_table:
-            total_rms = dataset_table['total_rms'][0]
+            total_rms = dataset_table.filtered_table['total_rms'][0]
 
         assert 0.0 < total_rms <= RMS_LIMIT
